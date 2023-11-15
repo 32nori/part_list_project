@@ -1,38 +1,39 @@
 # part_list_project
-開発環境、動作環境の構築方法を以下に示します。
+- 昔から部品表のサンプルをネット上で検索していましがた見かける事がなかったので
+自分で作ってみようと思い立ちました。お役立ちになるか分かりませんが動くものをつくりましたのでよろしければお使い下さい。
 
+# インストール方法
+
+## 1.リポジトリのクローン
+GitHubからプロジェクトをクローンします。
 ```powershell
->mkdir part_list_project
->cd part_list_project
->python -m venv venv
->.\venv\Scripts\activate
-(venv)>python -m pip install --upgrade pip
-(venv)>pip install django
-(venv)>pip install django-bootstrap5
-(venv)>pip freeze
-sgiref==3.7.2
-Django==4.2.7
-django-bootstrap5==23.3
-sqlparse==0.4.4
-tzdata==2023.3
+git clone https://github.com/your-username/your-project-name.git
+cd your-project-name
+```
 
-(venv)>django-admin startproject part_list_project .
-(venv)>python manage.py migrate
-(venv) >python manage.py createsuperuser
-ユーザー名 (leave blank to use 'hoge'): admin
-メールアドレス: admin@example.com
-Password: hogefuga
-Password (again): hogefuga
-Superuser created successfully.
+## 2.依存関係のインストール
+必要なライブラリと依存関係をインストールします。
+```powershell
+pip install -r requirements.txt
+```
 
-(venv) >python manage.py runserver
-
-(venv) >python manage.py startapp part_list_app
-
-
-(venv) >python manage.py makemigrations
-(venv) >python manage.py migrate
-
-(venv) >python manage.py loaddata part_list_app/fixtures/part_data.json
+## 3.データベースのセットアップ
+データベースマイグレーションを実行します。
+```powershell
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata part_list_app/fixtures/part_data.json
 ```
 part_dataの中に製品、部品のコードが入っていますので、こちらより選択して動作確認してみて下さい。
+
+## 4.サーバーの起動
+Django開発サーバーを起動します。
+```powershell
+python manage.py runserver
+```
+サーバーが起動したら、ブラウザで http://127.0.0.1:8000/ にアクセスしてプロジェクトを表示します。
+
+# 使用方法
+プロジェクトの使用方法や機能についての説明を記述します。ユーザーがプロジェクトを使用するためのステップやヒントを提供します。
+# ライセンス
+このプロジェクトのライセンス情報を記述します。例えば、MITライセンスやGPLライセンスなどです。
