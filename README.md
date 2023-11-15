@@ -29,10 +29,6 @@ Superuser created successfully.
 
 (venv) >python manage.py startapp part_list_app
 
-part_list_app/settings.pyへ
-'part_list_app.apps.PartListAppConfig',
-文字列を追加。
-
 
 (venv) >python manage.py makemigrations
 (venv) >python manage.py migrate
